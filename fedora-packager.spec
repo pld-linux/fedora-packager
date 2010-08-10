@@ -6,6 +6,7 @@ License:	GPL v2+
 Group:		X11/Applications
 URL:		https://fedorahosted.org/fedora-packager
 Source0:	https://fedorahosted.org/releases/f/e/fedora-packager/%{name}-%{version}.tar.bz2
+# Source0-md5:	cae9095ca9fa03418a0d8966808a9649
 BuildRequires:	python-devel
 BuildRequires:	rpmbuild(macros) >= 1.219
 #Requires:	bodhi-client
