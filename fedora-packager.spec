@@ -1,7 +1,7 @@
 Summary:	Tools for setting up a Fedora maintainer environment
 Name:		fedora-packager
 Version:	0.5.1.1
-Release:	0.1
+Release:	0.2
 License:	GPL v2+
 Group:		X11/Applications
 URL:		https://fedorahosted.org/fedora-packager
@@ -21,6 +21,7 @@ Requires:	python-pycurl
 Requires:	rpm-build
 #Requires:	rpmdevtools
 #Requires:	rpmlint
+Requires:	koji
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
