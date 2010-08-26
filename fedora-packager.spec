@@ -1,12 +1,12 @@
 Summary:	Tools for setting up a Fedora maintainer environment
 Name:		fedora-packager
-Version:	0.5.1.1
-Release:	0.2
+Version:	0.5.1.4
+Release:	0.1
 License:	GPL v2+
 Group:		X11/Applications
 URL:		https://fedorahosted.org/fedora-packager
 Source0:	https://fedorahosted.org/releases/f/e/fedora-packager/%{name}-%{version}.tar.bz2
-# Source0-md5:	cae9095ca9fa03418a0d8966808a9649
+# Source0-md5:	33f5944d3468413058b035dedac4588f
 BuildRequires:	python-devel
 BuildRequires:	rpmbuild(macros) >= 1.219
 #Requires:	bodhi-client
@@ -41,6 +41,19 @@ Requires:	python-kitchen
 %description -n fedpkg
 Provides the fedpkg command for working with dist-git.
 
+%package -n bash-completion-fedpkg
+Summary:	bash-completion for fedpkg
+Summary(pl.UTF-8):	bashowe uzupełnianie nazw dla fedpkg
+Group:		Applications/Shells
+Requires:	fedpkg = %{version}-%{release}
+Requires:	bash-completion
+
+%description -n bash-completion-fedpkg
+bash-completion for fedpkg.
+
+%description -n bash-completion-fedpkg -l pl.UTF-8
+bashowe uzupełnianie nazw dla fedpkg.
+
 %prep
 %setup -q
 
@@ -55,6 +68,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %py_postclean
 
+mv $RPM_BUILD_ROOT/etc/bash_completion.d/fedpkg{.bash,}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -67,6 +82,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n fedpkg
 %defattr(644,root,root,755)
-%doc COPYING TODO AUTHORS ChangeLog
 %attr(755,root,root) %{_bindir}/fedpkg
 %{py_sitescriptdir}/pyfedpkg
+
+%files -n bash-completion-fedpkg
+%defattr(644,root,root,755)
+/etc/bash_completion.d/*
