@@ -8,10 +8,12 @@ URL:		https://fedorahosted.org/fedora-packager
 Source0:	https://fedorahosted.org/releases/f/e/fedora-packager/%{name}-%{version}.tar.bz2
 # Source0-md5:	33f5944d3468413058b035dedac4588f
 BuildRequires:	python-devel
+BuildRequires:	python-modules
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 #Requires:	bodhi-client
 Requires:	curl
-#Requires:	koji
+Requires:	koji
 #Requires:	mock
 Requires:	openssh-clients
 Requires:	python-offtrac
@@ -21,7 +23,6 @@ Requires:	python-pycurl
 Requires:	rpm-build
 #Requires:	rpmdevtools
 #Requires:	rpmlint
-Requires:	koji
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -45,8 +46,8 @@ Provides the fedpkg command for working with dist-git.
 Summary:	bash-completion for fedpkg
 Summary(pl.UTF-8):	bashowe uzupełnianie nazw dla fedpkg
 Group:		Applications/Shells
-Requires:	fedpkg = %{version}-%{release}
 Requires:	bash-completion
+Requires:	fedpkg = %{version}-%{release}
 
 %description -n bash-completion-fedpkg
 bash-completion for fedpkg.
