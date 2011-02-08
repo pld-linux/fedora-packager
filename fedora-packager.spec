@@ -79,6 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc TODO AUTHORS ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %exclude %{_bindir}/fedpkg
+# R: fedora.client.fas2
 %{py_sitescriptdir}/fedora_cert
 
 %files -n fedpkg
