@@ -1,12 +1,13 @@
 Summary:	Tools for setting up a Fedora maintainer environment
 Name:		fedora-packager
-Version:	0.5.2.0
+Version:	0.5.5.0
 Release:	0.1
 License:	GPL v2+
 Group:		X11/Applications
 URL:		https://fedorahosted.org/fedora-packager
-Source0:	https://fedorahosted.org/releases/f/e/fedora-packager/%{name}-%{version}.tar.bz2
-# Source0-md5:	7a8a325e4d30ab5463e599e17079b780
+#Source0:	https://fedorahosted.org/releases/f/e/fedora-packager/%{name}-%{version}.tar.bz2
+Source0:	%{name}-%{version}.tar.bz2
+# Source0-md5:	e04d594924d3b960d4a4eb1367c203b8
 BuildRequires:	python-devel
 BuildRequires:	python-modules
 BuildRequires:	rpm-pythonprov
@@ -34,10 +35,11 @@ environment.
 Summary:	Fedora utility for working with dist-git
 Group:		Applications/Databases
 Requires:	curl
-Requires:	fedora-packager = %{version}-%{release}
+Requires:	git-core
 Requires:	python-argparse
 Requires:	python-git >= 0.2.0
 Requires:	python-kitchen
+Requires:	rpm-build
 
 %description -n fedpkg
 Provides the fedpkg command for working with dist-git.
@@ -86,6 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n fedpkg
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/fedpkg
+%{_mandir}/man1/fedpkg.1*
 %{py_sitescriptdir}/pyfedpkg
 
 %files -n bash-completion-fedpkg
