@@ -1,13 +1,13 @@
 Summary:	Tools for setting up a Fedora maintainer environment
 Name:		fedora-packager
 Version:	0.5.5.0
-Release:	0.1
+Release:	0.2
 License:	GPL v2+
 Group:		X11/Applications
 URL:		https://fedorahosted.org/fedora-packager
 #Source0:	https://fedorahosted.org/releases/f/e/fedora-packager/%{name}-%{version}.tar.bz2
 Source0:	%{name}-%{version}.tar.bz2
-# Source0-md5:	e04d594924d3b960d4a4eb1367c203b8
+# Source0-md5:	45b7a7561d5676f0c69a53a6991a9cac
 BuildRequires:	python-devel
 BuildRequires:	python-modules
 BuildRequires:	rpm-pythonprov
@@ -38,7 +38,6 @@ Requires:	curl
 Requires:	git-core
 Requires:	python-argparse
 Requires:	python-git >= 0.2.0
-Requires:	python-kitchen
 Requires:	rpm-build
 
 %description -n fedpkg
@@ -76,6 +75,7 @@ mv $RPM_BUILD_ROOT/etc/bash_completion.d/fedpkg{.bash,}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%if 0
 %files
 %defattr(644,root,root,755)
 %doc TODO AUTHORS ChangeLog
@@ -84,6 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 %exclude %{_bindir}/fedpkg
 # R: fedora.client.fas2
 %{py_sitescriptdir}/fedora_cert
+%endif
 
 %files -n fedpkg
 %defattr(644,root,root,755)
